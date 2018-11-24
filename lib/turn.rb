@@ -33,8 +33,7 @@ def valid_move?(board, index)
     return true
   end
 end
-
-# ask player to enter turn
+# ask player to input a turn
 def turn(board)
   puts "Please enter 1-9:"
   input = gets.strip

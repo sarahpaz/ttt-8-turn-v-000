@@ -47,7 +47,5 @@ def turn(board)
       puts "Please enter 1-9:"
       break if valid_move(board, index)
     end
-      
-    end
   end
 end

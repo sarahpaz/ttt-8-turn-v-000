@@ -43,9 +43,6 @@ def turn(board)
     move(board, index)
     display_board(board)
   else
-    while !valid_move?(board, index)
-      puts "Please enter 1-9:"
-      break if valid_move(board, index)
-    end
+    turn(board)
   end
 end

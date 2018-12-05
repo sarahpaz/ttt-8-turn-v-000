@@ -3,29 +3,27 @@ index = 0
 
 # display Tic Tac Toe board
 def display_board(board)
-  puts " #{board[0]} | #{board[1]} | #{board[2]} "
-  puts "-----------"
-  puts " #{board[3]} | #{board[4]} | #{board[5]} "
-  puts "-----------"
-  puts " #{board[6]} | #{board[7]} | #{board[8]} "
+    puts " #{board[0]} | #{board[1]} | #{board[2]} "
+    puts "-----------"
+    puts " #{board[3]} | #{board[4]} | #{board[5]} "
+    puts "-----------"
+    puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
 # change input to match board index
-def input_to_index(user_input)
-  user_input.to_i - 1
+def input_to_index(input)
+    input.to_i - 1
 end
 # move position on board
-def move(board, index, player_character = "X")
-  board[index] = player_character
+def move(board, index, player = "X")
+    board[index] = player
 end
 # check if the position is taken
 def position_taken?(board, index)
-  if board[index] == " " || board[index] == ""
-    return false
-  elsif board[index] == "X" || board[index] == "O"
-    return true
-  else
-    return false
-  end
+    if board[index] == " " || board[index] == "" || board[index] == nil
+      false
+    else board[index] == "X" || board[index] == "O"
+      true
+    end
 end
 # check if the move is valid
 def valid_move?(board, index)
@@ -33,15 +31,15 @@ def valid_move?(board, index)
     return true
   end
 end
-# ask player to input a turn
+# player takes a turn
 def turn(board)
-  puts "Please enter 1-9:"
-  input = gets.strip
-  index = input_to_index(input)
-  if valid_move?(board, index)
-    move(board, index)
-    display_board(board)
-  else
-    turn(board)
-  end
+    puts "Please enter 1-9:"
+    input = gets.strip
+    index = input_to_index(input)
+    if valid_move?(board, index)
+      move(board, index, player = "X")
+      display_board(board)
+    else
+      turn(board)
+    end
 end
